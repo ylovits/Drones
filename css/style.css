@@ -11,7 +11,7 @@ body{background:#000; text-align: center; overflow: hidden;}
   -webkit-transform: translateY(-50%);
 max-width:50%; max-height:100%; float:left;}
 .container img{max-width:100%;}
-.container .logocont {padding:4rem;}
+.container .logocont {padding:0 4rem;}
 .container .logocont .logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem; margin-top:2rem; }
 .socials{ position: fixed; right: 0; top: 0; font-size: 2rem; padding: 1rem;}
 .socials a{text-decoration: none;}
