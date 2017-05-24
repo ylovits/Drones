@@ -1,15 +1,22 @@
-body{background:#000; text-align: center;}
-#scene{width:887px; height:800px; margin:1rem auto; overflow: hidden;}
-.framet{display:block; width:887px; height:4rem; position: absolute; top:0; background:#000; z-index: 1000;}
-.framer{display:block; height:800px; width:4rem; position: absolute; right:0; background:#000; z-index: 1000; top:0;}
-.frameb{display:block; width:887px; height:4rem; position: absolute; bottom:0; background:#000; z-index: 1000;}
-.framel{display:block; height:800px; width:4rem; position: absolute; left:0; background:#000; z-index: 1000; top:0;}
-.container{text-align: center; margin-bottom:-2rem;}
-.logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem;}
+body{background:#000; text-align: center; overflow: hidden;}
+.pagewrapper{overflow: hidden; width:100vw; height:100vh;}
+#scene{width:100%; height:100%; margin:1rem auto; overflow: hidden;}
+.framet{display:block; width:100%; height:4rem; position: absolute; top:0; background:#000; z-index: 1000;}
+.framer{display:block; height:100%; width:4rem; position: absolute; right:0; background:#000; z-index: 1000; top:0;}
+.frameb{display:block; width:100%; height:4rem; position: absolute; bottom:0; background:#000; z-index: 1000;}
+.framel{display:block; height:100%; width:4rem; position: absolute; left:0; background:#000; z-index: 1000; top:0;}
+.container{text-align: center;   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+max-width:50%; max-height:100%; float:left;}
+.container img{max-width:100%;}
+.container .logocont {padding:4rem;}
+.container .logocont .logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem; margin-top:2rem; }
 .socials{ position: fixed; right: 0; top: 0; font-size: 2rem; padding: 1rem;}
 .socials a{text-decoration: none;}
 
-
+body audio{    max-width: 98%;}
 
 /* Font Family
 ================================================== */
@@ -20,32 +27,33 @@ body{background:#000; text-align: center;}
 /* Desktop
 ================================================== */
 
-.containerd { position:relative; margin:0 auto; width:700px; }
+.containerd { position:relative; margin:0 auto; /*width:700px; */ max-width: 48%; float:left; margin-top:10rem;
+margin-right: 2%;}
 .column { width:inherit; }
 
 
 /* Tablet (Portrait)
 ================================================== */
 
-@media only screen and (min-width: 768px) and (max-width: 959px) {
+/*@media only screen and (min-width: 768px) and (max-width: 959px) {
 .containerd { width:556px; }
-}
+}*/
 
 
 /* Mobile (Portrait)
 ================================================== */
 
-@media only screen and (max-width: 767px) {
+/*@media only screen and (max-width: 767px) {
 .containerd { width:300px; }
-}
+}*/
 
 
 /* Mobile (Landscape)
 ================================================== */
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+/*@media only screen and (min-width: 480px) and (max-width: 767px) {
 .containerd { width:420px; }
-}
+}*/
 
 
 /* CSS Reset
@@ -123,16 +131,10 @@ p a,p a:visited { line-height:inherit; }
 audio { margin:0 15px 0 14px; width:670px; }
 #mainwrap { box-shadow:0 0 6px 1px rgba(0,0,0,.25); margin-top: -3rem;}
 #audiowrap { background-color:#231F20; margin:0 auto; padding-bottom: 5px;}
-#plwrap { margin:0 auto; opacity:0; 
--webkit-transition: all 0.2s ease-in-out;
--moz-transition: all 0.2s ease-in-out;
--ms-transition: all 0.2s ease-in-out;
--o-transition: all 0.2s ease-in-out;
-transition: all 0.2s ease-in-out;}
-#mainwrap:hover #plwrap{opacity:1;}
+#plwrap { margin:0 auto; }
 #tracks {     width: 100px;
     position: absolute;
-    top: 10px;
+    top: -25px;
     left:8.5rem;
     font-size: 0.5rem;}
     #tracks a{font-size:2rem;}

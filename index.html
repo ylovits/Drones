@@ -41,6 +41,7 @@
 
 </head>
 <body>
+<div class="pagewrapper">
 	<div class="socials">
 		<a href="https://livingunderdrones.bandcamp.com/releases" target="_blank">
 			<i class="fa fa-bandcamp" aria-hidden="true"></i>
@@ -50,7 +51,9 @@
 		</a>
 	</div>
 	<div id="container" class="container">
-		<img class="logo" src="images/logo.png">
+		<div class="logocont">
+			<img class="logo" src="images/logo.png">
+		</div>
 		<div id="scene" class="scene">
 			<div class="layer" data-depth="1.00"><img src="images/layer1.png"></div>
 			<div class="layer" data-depth="0.80"><img src="images/layer2.png"></div>
@@ -67,28 +70,28 @@
 	</div>
 
 	<div class="containerd">
-    <div class="column add-bottom">
-        <div id="mainwrap">
-            <div id="nowPlay">
-                <span class="left" id="npAction">Paused...</span>
-                <span class="right" id="npTitle"></span>
-            </div>
-            <div id="audiowrap">
-                <div id="audio0">
-                    <audio preload autoplay id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
-                </div>
-                <div id="tracks">
-                    <a id="btnPrev">&laquo;</a>
-                    <a id="btnNext">&raquo;</a>
-                </div>
-            </div>
-            <div id="plwrap">
-                <ul id="plList"></ul>
-            </div>
-        </div>
-    </div>
+	    <div class="column add-bottom">
+	        <div id="mainwrap">
+	            <div id="nowPlay">
+	                <span class="left" id="npAction">Paused...</span>
+	                <span class="right" id="npTitle"></span>
+	            </div>
+	            <div id="audiowrap">
+	                <div id="audio0">
+	                    <audio preload autoplay id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+	                </div>
+	                <div id="tracks">
+	                    <a id="btnPrev">&laquo;</a>
+	                    <a id="btnNext">&raquo;</a>
+	                </div>
+	            </div>
+	            <div id="plwrap">
+	                <ul id="plList"></ul>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
-
 <!-- <audio preload="none" controls style="max-width:100%; margin-top:-2rem;">
                     <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
                 </audio> -->
