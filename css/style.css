@@ -7,7 +7,7 @@
 .framel{display:block; height:100%; width:4rem; position: absolute; left:0; background:#000; z-index: 1000; top:0;}
 
 .container .logocont {padding:0 4rem;}
-.container .logocont .logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem; margin-top:2rem; }
+.container .logocont .logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem; margin-top:2rem; max-width: 100%;}
 .socials{ position: fixed; right: 0; top: 0; font-size: 2rem; padding: 1rem;}
 .socials a{text-decoration: none;}
 
@@ -37,6 +37,7 @@ margin-right: 2%;}
 	body{background:#000; text-align: center; overflow-x: hidden;}
 	body .pagewrapper{height:auto;}
 	.container{text-align: center;} 
+	.container img{max-width:100%;}
 	body .containerd { position:relative;}
 	body #tracks{top:10px;}
 }
