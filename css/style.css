@@ -29,8 +29,16 @@ body audio{    max-width: 98%;}
   -webkit-transform: translateY(-50%);
 max-width:50%; max-height:100%; float:left;}
 .container img{max-width:100%;}
-.containerd { position:relative; margin:0 auto; /*width:700px; */ max-width: 48%; float:left; margin-top:10rem;
-margin-right: 2%;}
+.containerd { 
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    max-width: 48%;
+    max-height: 100%;
+    float: left;
+    margin-right: 2%;}
 }
 
 @media only screen and (max-width: 767px) {
