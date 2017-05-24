@@ -10,6 +10,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
@@ -32,18 +33,161 @@
 			<div class="framel"></div>
 		</div>
 	</div>
-<audio preload="none" controls style="max-width:100%; margin-top:-2rem;">
+
+	<div class="containerd">
+    <div class="column add-bottom">
+        <div id="mainwrap">
+            <div id="nowPlay">
+                <span class="left" id="npAction">Paused...</span>
+                <span class="right" id="npTitle"></span>
+            </div>
+            <div id="audiowrap">
+                <div id="audio0">
+                    <audio preload autoplay id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                </div>
+                <div id="tracks">
+                    <a id="btnPrev">&laquo;</a>
+                    <a id="btnNext">&raquo;</a>
+                </div>
+            </div>
+            <div id="plwrap">
+                <ul id="plList"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <audio preload="none" controls style="max-width:100%; margin-top:-2rem;">
                     <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
-                </audio>
+                </audio> -->
+	
+
+
 	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/html5media.min.js"></script>
 	<script src="js/parallax.js"></script>
 	<script>
-
 	// Pretty simple huh?
 	var scene = document.getElementById('scene');
 	var parallax = new Parallax(scene);
-
 	</script>
+
+
+<script type="text/javascript">
+var b = document.documentElement;
+b.setAttribute('data-useragent', navigator.userAgent);
+b.setAttribute('data-platform', navigator.platform);
+
+jQuery(function ($) {
+    var supportsAudio = !!document.createElement('audio').canPlayType;
+    if (supportsAudio) {
+        var index = 0,
+            playing = false,
+            mediaPath = 'images/',
+            extension = '',
+            tracks = [{
+                "track": 1,
+                "name": "John Cage",
+                "length": "7:31",
+                "file": "John_Cage"
+            }, {
+                "track": 2,
+                "name": "Gradual Self-Beheading in Ordinary Family Meeting",
+                "length": "8:51",
+                "file": "Gradual_Self-Beheading_in_Ordinary_Family_Meeting"
+            }, {
+                "track": 3,
+                "name": "Drone Fucks Drone",
+                "length": "7:48",
+                "file": "Drone_Fucks_Drone"
+            }, {
+                "track": 4,
+                "name": "We Renounce The Old World",
+                "length": "10:19",
+                "file": "We_Renounce_The_Old_World"
+            }],
+            buildPlaylist = $.each(tracks, function(key, value) {
+                var trackNumber = value.track,
+                    trackName = value.name,
+                    trackLength = value.length;
+                if (trackNumber.toString().length === 1) {
+                    trackNumber = '0' + trackNumber;
+                } else {
+                    trackNumber = '' + trackNumber;
+                }
+                $('#plList').append('<li><div class="plItem"><div class="plNum">' + trackNumber + '.</div><div class="plTitle">' + trackName + '</div><div class="plLength">' + trackLength + '</div></div></li>');
+            }),
+            trackCount = tracks.length,
+            npAction = $('#npAction'),
+            npTitle = $('#npTitle'),
+            audio = $('#audio1').bind('play', function () {
+                playing = true;
+                npAction.text('Now Playing...');
+            }).bind('pause', function () {
+                playing = false;
+                npAction.text('Paused...');
+            }).bind('ended', function () {
+                npAction.text('Paused...');
+                if ((index + 1) < trackCount) {
+                    index++;
+                    loadTrack(index);
+                    audio.play();
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }).get(0),
+            btnPrev = $('#btnPrev').click(function () {
+                if ((index - 1) > -1) {
+                    index--;
+                    loadTrack(index);
+                    if (playing) {
+                        audio.play();
+                    }
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }),
+            btnNext = $('#btnNext').click(function () {
+                if ((index + 1) < trackCount) {
+                    index++;
+                    loadTrack(index);
+                    if (playing) {
+                        audio.play();
+                    }
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }),
+            li = $('#plList li').click(function () {
+                var id = parseInt($(this).index());
+                if (id !== index) {
+                    playTrack(id);
+                }
+            }),
+            loadTrack = function (id) {
+                $('.plSel').removeClass('plSel');
+                $('#plList li:eq(' + id + ')').addClass('plSel');
+                npTitle.text(tracks[id].name);
+                index = id;
+                audio.src = mediaPath + tracks[id].file + extension;
+            },
+            playTrack = function (id) {
+                loadTrack(id);
+                audio.play();
+            };
+        extension = audio.canPlayType('audio/mpeg') ? '.mp3' : audio.canPlayType('audio/ogg') ? '.ogg' : '';
+        loadTrack(index);
+    }
+});
+</script>
+
 
 </body>
 </html>
