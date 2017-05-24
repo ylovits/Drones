@@ -1,8 +1,0 @@
-body{background:#000;}
-#scene{width:887px; height:800px; margin:1rem auto; overflow: hidden;}
-.framet{display:block; width:887px; height:4rem; position: absolute; top:0; background:#000; z-index: 1000;}
-.framer{display:block; height:800px; width:4rem; position: absolute; right:0; background:#000; z-index: 1000; top:0;}
-.frameb{display:block; width:887px; height:4rem; position: absolute; bottom:0; background:#000; z-index: 1000;}
-.framel{display:block; height:800px; width:4rem; position: absolute; left:0; background:#000; z-index: 1000; top:0;}
-.container{text-align: center;}
-.logo{position: relative; z-index: 1233333333; margin-bottom: -4.4rem;}
